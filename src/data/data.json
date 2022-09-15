@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "điện thoại",
+    "price": "300$",
+    "imgUrl": "/images/phone.jpg"
+  },
+  {
+    "id": 2,
+    "name": "xe hơi",
+    "price": "2000$",
+    "imgUrl": "/images/car.jpg"
+  },
+  {
+    "id": 3,
+    "name": "sách",
+    "price": "13.9$",
+    "imgUrl": "/images/book.jpg"
+  },
+  {
+    "id": 4,
+    "name": "xe đạp",
+    "price": "150$",
+    "imgUrl": "/images/bike.jpg"
+  }
+]

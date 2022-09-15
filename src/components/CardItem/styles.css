@@ -1,0 +1,112 @@
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  height: 350px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.cardItem img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+}
+.cardItem button {
+  padding: 5px 10px;
+  width: 30px;
+  font-size: 1rem;
+  margin: 0 10px;
+  background-color: lightgreen;
+  border: none;
+  cursor: pointer;
+}
+.cardItem .cardContent {
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.cardButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.itemQuantity {
+  text-align: center;
+  width: 30px;
+}
+
+/* horizontal cart Items */
+
+.cardItem.horizontal {
+  position: relative;
+  flex-direction: row;
+  height: 200px;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.cardContent.horizontal {
+  flex-direction: row;
+}
+.itemImg.horizontal {
+  width: 150px;
+  height: 150px;
+}
+.cardButton.horizontal {
+  height: 30px;
+  margin-top: 50px;
+}
+.itemQuantity.horizontal {
+  width: 30px;
+  font-size: 1rem;
+  align-self: center;
+}
+.itemPrice.horizontal {
+  position: absolute;
+  font-size: 2rem;
+  bottom: 50px;
+  right: 40px;
+}
+.cardButton.horizontal button:last-child {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+.itemTitle.horizontal {
+  font-size: large;
+}
+
+@media (max-width: 1000px) {
+  .cardItem {
+    width: 30%;
+  }
+  .ItemsContainer {
+    justify-content: center;
+  }
+}
+@media (max-width: 725px) {
+  .cardItem {
+    width: 45%;
+  }
+  .ItemsContainer {
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .ItemsContainer {
+    flex-direction: column;
+  }
+  .cardItem {
+    width: 100%;
+  }
+  .shoppingCart.open {
+    width: 300px;
+  }
+  .itemPrice.horizontal {
+    right: 10px;
+    font-size: 1.5rem;
+  }
+}
