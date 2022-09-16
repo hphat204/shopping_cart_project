@@ -1,8 +1,30 @@
 .ItemsContainer {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
   font-size: 1.5rem;
   padding: 10px 10%;
   width: 100%;
+}
+.loadingContainer {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+.loading {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 7px solid rgba(0, 0, 0, 0.5);
+  margin: auto;
+  border-right-color: black;
+  animation: loading-animation 1.5s linear infinite;
+}
+
+@keyframes loading-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

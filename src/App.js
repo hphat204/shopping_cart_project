@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import ItemsContainer from "./components/ItemsContainer/ItemsContainer";
@@ -6,13 +6,17 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import Data from "./data/data.json";
 
 const initialState = {
-  products: Data,
+  products: [],
   cart: [],
 };
 const cartReducer = (state, action) => {
   const isItemInCart = state.cart.find((item) => item.id === action.payload.id);
-  console.log();
   switch (action.type) {
+    case "GET_PRODUCTS":
+      return {
+        ...state,
+        products: [...action.payload.data],
+      };
     case "ADD_TO_CART":
       if (isItemInCart) {
         return {
@@ -49,12 +53,22 @@ const cartReducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const [cartToggle, setCartToggle] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      dispatch({ type: "GET_PRODUCTS", payload: { data: [...Data] } });
+    }, 1000);
+    if (state.products.length > 0) {
+      setLoading(false);
+    }
+  }, [state.products]);
   return (
     <>
       {cartToggle && <div className="overLay" onClick={() => setCartToggle(false)}></div>}
       <div className="App">
         <Header state={state} cartToggle={cartToggle} setCartToggle={setCartToggle} />
-        <ItemsContainer state={state} dispatch={dispatch} />
+        <ItemsContainer state={state} dispatch={dispatch} loading={loading} />
         <ShoppingCart state={state} dispatch={dispatch} cartToggle={cartToggle} setCartToggle={setCartToggle} />
       </div>
     </>

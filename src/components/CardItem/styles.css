@@ -1,10 +1,15 @@
 .cardItem {
   display: flex;
   flex-direction: column;
-  width: 23%;
   height: 350px;
+  width: 25%;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  transition: box-shadow 0.2s ease-out;
+}
+.cardItem:hover {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 .cardItem img {
   width: 100%;
@@ -22,7 +27,6 @@
 }
 .cardItem .cardContent {
   flex-direction: column;
-
   text-align: center;
 }
 
@@ -83,16 +87,11 @@
   .cardItem {
     width: 30%;
   }
-  .ItemsContainer {
-    justify-content: center;
-  }
 }
 @media (max-width: 725px) {
   .cardItem {
     width: 45%;
-  }
-  .ItemsContainer {
-    gap: 20px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
   }
 }
 @media (max-width: 600px) {
